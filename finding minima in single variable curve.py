@@ -10,7 +10,7 @@ def havesex(population):
 
 #findresp adalah fungsi kecocokan
 def findresp(x):
-    return (x+2)**2
+    return x**2 + 6*x +9
 
 #sort digunakan untuk menngurutkan individu berdasarkan nilai kecocokannya
 def sort(input,output):
@@ -32,9 +32,11 @@ x = np.linspace(-20,20,100)
 y = findresp(x)
 
 #fungsi plot, tidak mesti ada
+"""
 pyplot.ion()
 fig = pyplot.figure()
 ax = fig.add_subplot(111)
+"""
 
 ###### . . . MAIN . . . #######
 
@@ -65,11 +67,13 @@ for c in range(numGeneration):
     print(population)
     print(response)
 
-    #plotting
+    #plotting, tidak mesti ada
+    """
     ax.clear()
     line1, = ax.plot(x,y)
     line2, = ax.plot(population,response,'bo')
     fig.canvas.draw()
+    """
 
     #conditional mutation, if there's no solution for a long time
     """
@@ -79,3 +83,7 @@ for c in range(numGeneration):
     #looooooopbreaak
     if(response[0]<1e-10):
         break
+        
+pyplot.plot(x,y)
+pyplot.plot(population,response,'bo')
+pyplot.show()
